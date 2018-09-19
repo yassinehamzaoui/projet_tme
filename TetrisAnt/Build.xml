@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project name="Compilation de Tetris" default="dist" xmlns:ivy="antlib:org.apache.ivy.ant">
 	<property name="src.dir" value="src"></property>
 	<property name="obj.dir" value="bin"></property>
 	<property name="libs.dir" value="libs"></property>
 	<property name="main-class" value="fr.ubo.tertris.Tertis"></property>
 	<property name="compile.classpath" value="${basedir}/lib/commons-lang3-3.5.jar"></property>
+	
 	<target name="clean">
+		<delete dir="${basedir}/lib"/>
+		<mkdir dir="${basedir}/lib"/>
 		<echo message="Suppression des fichiers issus de la compilation"></echo>
 		    <delete dir="${basedir}/bin"/>
 	</target>
-	<target name="compile">
+	<target name="compile" depends="retrieve">
 		<mkdir dir="bin" />
 		<javac srcdir="${basedir}/src" destdir="${basedir}/bin" classpath="lib/commons-lang3-3.5.jar" executable="${javac.version}" />
 	</target>
@@ -29,4 +33,5 @@
 		<ivy:resolve/>
 		<ivy:retrieve sync="true" type="jar"/>
 	</target>
+	
 </project>
