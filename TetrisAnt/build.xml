@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Compilation de Tetris" default="dist" basedir="." xmlns:ivy="antlib:org.apache.ivy.ant">
+
+<retrieve>
+      <ivy:settings />
+      <ivy:resolve />
+</retrieve>
+
+<property name="Version" value="1"></property>
+<property name="src.dir" value="${basedir}/src"></property>
+<property name="obj.dir" value="${basedir}/bin"></property>
+<property name="libs.dir" value="${basedir}/lib"></property>
+<property name="main-class" value="fr.ubo.tetris.Tetris"></property>
+<property name="compile.classpath" value="${basedir}/lib/commons-lang3-3.5.jar"></property>
+
+<target name="clean">
+   <echo message="Suppression des fichiers issus de la compilation" />
+   <delete dir="${basedir}/bin" />
+</target>
+
+<target name="compile">
+<mkdir dir="bin" ></mkdir>
+  <javac srcdir="${basedir}/src" destdir="${basedir}/bin" classpath="${compile.classpath}"
+ executable="${javac.version}" />
+</target>
+
+<target name="dist" depends="clean,compile">
+     <manifest file="${basedir}/bin/manifest.mf">
+        <attribute name="Built-By" value="MOUNAJI" ></attribute>
+        <attribute name="Implementation-Version" value="${Version}" ></attribute>
+        <attribute name="Main-Class" value="${main-class}" ></attribute>
+        <attribute name="Class-Path" value="lib/commons-lang3-3.5.jar" ></attribute>
+     </manifest>
+     <jar jarfile="tetris.jar" basedir="${basedir}/bin" manifest="${basedir}/bin/manifest.mf"></jar>
+</target>
+
+</project>
