@@ -4,13 +4,8 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-<<<<<<< HEAD
-import fr.isen.tetris.Shape;
-import fr.isen.tetris.Tetrominoes;
-=======
 import fr.ubo.tetris.Shape;
 import fr.ubo.tetris.Tetrominoes;
->>>>>>> origin/master
 
 public class TestShape {
 
