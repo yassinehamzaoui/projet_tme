@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.10.3
+Created-By: 1.8.0_171-8u171-b11-0ubuntu0.18.04.1-b11 (Oracle Corporati
+ on)
+version: 1
+main-class: fr.ubo.tetris.Tetris
+implementation-version: ${version}
+build-by: yassine
+Class-Path: /home/dosipic/Bureau/tp_github/TetrisAnt/lib/commons-lang3
+ -3.5.jar
+
